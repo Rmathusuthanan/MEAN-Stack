@@ -4,12 +4,16 @@ import jwt from "jsonwebtoken";
 
 //REGISTER
 export const register = async (req, res) => {
-  console.log(req.body);
+  console.log("Register", req.body);
   try {
     const { name, email, password, role } = req.body;
+    if (!name || !email || !password || !role) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
 
     // Check if user already exists
     const userExists = await User.findOne({ email });
+    console.log(userExists);
     if (userExists) {
       return res.status(400).json({ message: "User already exists" });
     }
