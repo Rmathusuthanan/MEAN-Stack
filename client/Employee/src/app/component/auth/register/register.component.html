@@ -1,0 +1,72 @@
+<!--<div>
+    <form [formGroup]="form" (ngSubmit)="register()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" formControlName="username" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" formControlName="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" formControlName="password" required>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" formControlName="confirmPassword"
+                required>
+        </div>
+        <div class="form-group">
+            <label for="role">Role</label>
+            <select id="role" name="role" formControlName="role" required>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+        <div class="form-group">
+
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</div> -->
+
+<div class="register-container">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="register-form" autocomplete="off">
+
+        <h2>Register</h2>
+
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" formControlName="username" placeholder="Enter username" placeholder="Enter username">
+        </div>
+
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" formControlName="email" placeholder="test@gmail.com">
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" formControlName="password" placeholder="•••••••">
+        </div>
+
+        <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" formControlName="confirmPassword">
+        </div>
+
+        <div class="form-group">
+            <label>Role</label>
+            <select formControlName="role">
+                <option value="">Select role</option>
+                <option value="Admin">Admin</option>
+                <option value="Employee">Employee</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</div>
