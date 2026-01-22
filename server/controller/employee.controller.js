@@ -38,6 +38,8 @@ export const updateEmployee = async (req, res) => {
       return res.status(404).json({ message: "Employee not found" });
     }
     Object.assign(employee, req.body);
+
+    console.log(Object.assign(employee, req.body));
     await employee.save();
     res.json(employee);
   } catch (err) {

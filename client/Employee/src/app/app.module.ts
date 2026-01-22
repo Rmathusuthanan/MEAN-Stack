@@ -4,8 +4,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from './module/auth.module';
 import { DashboardModule } from './module/dashboard.module';
+import { EmployeeModule } from './module/employee.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EmployeeComponent } from './module/employee/employee.component';
 
 const routes = [
   {
@@ -18,10 +20,15 @@ const routes = [
     loadChildren: () =>
       import('./module/dashboard.module').then((m) => m.DashboardModule),
   },
+  {
+    path: 'employee',
+    loadChildren: () =>
+      import('./module/employee.module').then((m) => m.EmployeeModule),
+  },
 ];
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, EmployeeComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -29,6 +36,7 @@ const routes = [
     AppRoutingModule,
     AuthModule,
     DashboardModule,
+    EmployeeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
