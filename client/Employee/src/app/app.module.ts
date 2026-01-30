@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AgGridModule } from 'ag-grid-angular';
 import { AuthModule } from './module/auth.module';
 import { DashboardModule } from './module/dashboard.module';
 import { EmployeeModule } from './module/employee.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmployeeComponent } from './module/employee/employee.component';
+import { EmployeeComponent } from './component/dashboard/employee/employee.component';
+import { EmployeesComponent } from './component/dashboard/employees/employees.component';
 
 const routes = [
   {
@@ -28,11 +30,12 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, EmployeeComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     ReactiveFormsModule,
+    AgGridModule,
     AppRoutingModule,
     AuthModule,
     DashboardModule,

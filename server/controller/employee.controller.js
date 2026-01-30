@@ -1,17 +1,20 @@
-import Employee from "../models/employee.js";
+import Employee from "../models/employee.model.js";
 
 export const getEmployees = async (req, res) => {
   try {
-    const employees = await Employee.find();
-    res.json(employees);
+    const employees = await Employee.Employee.find();
+    //console.log(employees);
+    res.json({ emp: employees });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
 
 export const getEmployeeById = async (req, res) => {
+  console.log(req.params.Id);
   try {
-    const employee = await Employee.findById(req.params.id);
+    const employee = await Employee.Employee.findById({ _id: req.params.Id });
+    console.log("Employee", employee);
     if (!employee) {
       return res.status(404).json({ message: "Employee not found" });
     }

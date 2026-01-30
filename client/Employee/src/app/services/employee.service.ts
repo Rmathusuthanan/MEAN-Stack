@@ -27,6 +27,17 @@ export class EmployeeService {
       );
   }
 
+  getEmployeeById(Id: any): Observable<Employee[]> {
+    return this.http
+      .get(`${this.api}/employee/${Id}`, { headers: this.headers })
+      .pipe(
+        map((res: any) => {
+          console.log(res);
+          return res;
+        }),
+      );
+  }
+
   isAuthenticated(): boolean {
     return !!this.token;
   }

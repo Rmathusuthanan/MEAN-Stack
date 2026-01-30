@@ -1,4 +1,13 @@
 <div>
-    <h1>dashboard works!</h1>
+    <app-employees [employees]="employees" (employeeSelected)="getEmployee($event)"></app-employees>
+
     <button type="button" (click)="logout()">Logout</button>
+</div>
+
+<div class="dashboard">
+    <button (click)="logout()">Logout</button>
+
+    <ag-grid-angular style="width: 100%; height: 500px;" class="ag-theme-alpine" [rowData]="rowData"
+        [columnDefs]="columns" rowSelection="single" (rowClicked)="getEmployee($event.data)">
+    </ag-grid-angular>
 </div>

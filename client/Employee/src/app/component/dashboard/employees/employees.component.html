@@ -1,0 +1,26 @@
+<div>
+    Name:
+    <input type="text" [(ngModel)]="searchByName" />
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Email</th>
+        </tr>
+
+        <tr *ngFor="let employee of filteredEmployees; trackBy: trackById">
+            <td>{{ employee._id }}</td>
+            <td>
+                <a [routerLink]="['/employee', employee._id]">
+                    {{ employee.name }}
+                </a>
+            </td>
+            <td>{{ employee.age }}</td>
+            <td>{{ employee.gender }}</td>
+            <td>{{ employee.email }}</td>
+        </tr>
+    </table>
+</div>

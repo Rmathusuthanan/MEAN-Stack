@@ -4,7 +4,7 @@ export interface User {
 }
 
 export interface RegisterRequest {
-  username: string;
+  name: string;
   password: string;
   confirmPassword: string;
   email: string;

@@ -1,16 +1,16 @@
 <div class="auth-container">
     <div class="auth-card">
         <div class="tab-buttons">
-            <button type="button" (click)="switchTab('register')">
+            <button type="button" (click)="onRegister()">
                 Register
             </button>
 
-            <button type="button" (click)="switchTab('login')">
+            <button type="button" (click)="onlogin()">
                 Login
             </button>
         </div>
-
+        <!-- 
         <app-register *ngIf="activeTab === 'register'"></app-register>
-        <app-login *ngIf="activeTab === 'login'"></app-login>
+        <app-login *ngIf="activeTab === 'login'"></app-login>-->
     </div>
 </div>

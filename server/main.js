@@ -5,6 +5,7 @@ import bodyParser from "body-parser";
 dotenv.config();
 
 import authRoutes from "./routes/auth.route.js";
+import employeeRoute from "./routes/employee.route.js";
 import connectDB from "./lib/db.js";
 import { verifyToken } from "./middleware/auth.middleware.js";
 
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 const PORT = 3000;
 
 app.use("/api/auth/", authRoutes);
+app.use("/api/", employeeRoute);
 app.get("/api/protected", verifyToken, (req, res) => {
   res.json({ message: "Protected route", user: req.user });
 });

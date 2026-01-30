@@ -11,13 +11,14 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   registerRequest: RegisterRequest = {
-    username: '',
+    name: '',
     password: '',
     confirmPassword: '',
     email: '',
     role: '',
   };
   form!: FormGroup;
+  isLoggedIn: boolean = false;
 
   constructor(
     public authService: AuthService,
@@ -37,6 +38,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log(this.form);
     if (
       this.registerRequest.password !== this.registerRequest.confirmPassword
     ) {
@@ -53,5 +55,8 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/login']);
       });
     }
+  }
+  back() {
+    this.router.navigate(['/auth']);
   }
 }

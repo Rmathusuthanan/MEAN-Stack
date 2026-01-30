@@ -1,0 +1,25 @@
+.employee-card {
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.employee-name {
+  margin: 0 0 12px;
+  font-size: 22px;
+  color: #2c3e50;
+}
+
+.employee-info p {
+  margin: 6px 0;
+  color: #555;
+  font-size: 15px;
+}
+
+.employee-info span {
+  font-weight: 600;
+  color: #333;
+}
