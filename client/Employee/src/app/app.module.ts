@@ -36,7 +36,6 @@ const routes = [
     AppRoutingModule,
     AuthModule,
     DashboardModule,
-    EmployeeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
