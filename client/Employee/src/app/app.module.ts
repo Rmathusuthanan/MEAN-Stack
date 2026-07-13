@@ -7,7 +7,6 @@ import { DashboardModule } from './module/dashboard.module';
 import { EmployeeModule } from './module/employee.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EmployeeComponent } from './module/employee/employee.component';
 
 const routes = [
   {
@@ -28,7 +27,7 @@ const routes = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, EmployeeComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
