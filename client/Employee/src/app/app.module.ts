@@ -8,24 +8,6 @@ import { EmployeeModule } from './module/employee.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-const routes = [
-  {
-    path: 'auth',
-    loadChildren: () =>
-      import('./module/auth.module').then((m) => m.AuthModule),
-  },
-  {
-    path: 'dashboard',
-    loadChildren: () =>
-      import('./module/dashboard.module').then((m) => m.DashboardModule),
-  },
-  {
-    path: 'employee',
-    loadChildren: () =>
-      import('./module/employee.module').then((m) => m.EmployeeModule),
-  },
-];
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -35,6 +17,7 @@ const routes = [
     AppRoutingModule,
     AuthModule,
     DashboardModule,
+    EmployeeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,44 @@
+services:
+  mongo:
+    image: mongo:7.0
+    container_name: mean-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ["CMD", "mongo", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  server:
+    build:
+      context: ./server
+    image: mean-server
+    container_name: mean-server
+    ports:
+      - "3000:3000"
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/mean-app
+      NODE_ENV: production
+    depends_on:
+      mongo:
+        condition: service_healthy
+    restart: unless-stopped
+
+  client:
+    build:
+      context: ./client/Employee
+    image: mean-client
+    container_name: mean-client
+    ports:
+      - "4200:80"
+    depends_on:
+      server:
+        condition: service_started
+    restart: unless-stopped
+
+volumes:
+  mongo-data:

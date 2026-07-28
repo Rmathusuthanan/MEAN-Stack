@@ -1,60 +1,76 @@
 import { Schema, model } from "mongoose";
 
-const employeeSchema = new Schema({
+const employeeSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      trim: true,
+      unique: true,
+    },
+    phone: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    address: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    department: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    designation: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    salary: {
+      type: Number,
+      required: true,
+    },
+    joiningDate: {
+      type: Date,
+      required: true,
+    },
+    dateOfBirth: {
+      type: Date,
+      required: true,
+    },
+    status: {
+      type: String,
+      enum: ["active", "inactive"],
+      default: "active",
+    },
+  },
+  {
+    timestamps: true,
+  },
+);
+
+const departmentSchema = new Schema({
   name: {
     type: String,
     required: true,
     trim: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  password: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  role: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  department: {
-    type: String,
-    required: true,
-    trim: true,
-  },
-  salary: {
-    type: Number,
-    required: true,
-    trim: true,
-  },
-  joiningDate: Date,
-  status: Boolean,
-});
-
-const depatrmentSchema = new Schema({
-  departmentName: {
-    type: String,
-    required: true,
+    unique: true,
   },
   description: {
     type: String,
-    required: true,
+    trim: true,
   },
 });
 
-const LeaveSchema = new Schema({
-  employeeId: String,
-  fromDate: Date,
-  toDate: Date,
-  reason: String,
-  status: String,
-});
-
 const Employee = model("Employee", employeeSchema);
-const Department = model("Deparment", depatrmentSchema);
+const Department = model("Department", departmentSchema);
 
+export { Employee, Department };
 export default { Employee, Department };

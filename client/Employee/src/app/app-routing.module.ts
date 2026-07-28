@@ -5,6 +5,7 @@ import { LoginComponent } from './component/auth/login/login.component';
 import { RegisterComponent } from './component/auth/register/register.component';
 import { ForgetPasswordComponent } from './component/auth/forget-password/forget-password.component';
 import { DashboardComponent } from './component/dashboard/dashboard/dashboard.component';
+import { EmployeeComponent } from './module/employee/employee.component';
 import { AuthGuard } from './component/auth/auth.guard';
 
 const routes: Routes = [
@@ -15,6 +16,11 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'employee',
+    component: EmployeeComponent,
     canActivate: [AuthGuard],
   },
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
