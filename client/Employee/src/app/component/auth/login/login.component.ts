@@ -14,6 +14,8 @@ export class LoginComponent {
     password: ['', Validators.required],
   });
 
+  error: any;
+
   constructor(
     private fb: FormBuilder,
     public authService: AuthService,
@@ -29,6 +31,7 @@ export class LoginComponent {
         },
         error: (err) => {
           console.error(err);
+          this.error = err.error.message || 'An error occurred during login.';
         },
       });
     }

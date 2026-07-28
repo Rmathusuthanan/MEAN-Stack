@@ -1,4 +1,4 @@
-/* .register-container {
+.register-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -61,4 +61,4 @@ button {
 button:disabled {
   background: #9bbce0;
   cursor: not-allowed;
-} */
+}
