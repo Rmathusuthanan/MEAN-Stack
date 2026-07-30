@@ -9,31 +9,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  loginForm: FormGroup = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
-  });
-
-  error: any;
-
   constructor(
     private fb: FormBuilder,
     public authService: AuthService,
     private router: Router,
   ) {}
-
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const { email, password } = this.loginForm.value;
-      this.authService.login(email, password).subscribe({
-        next: (res) => {
-          this.router.navigate(['/dashboard']);
-        },
-        error: (err) => {
-          console.error(err);
-          this.error = err.error.message || 'An error occurred during login.';
-        },
-      });
-    }
-  }
 }

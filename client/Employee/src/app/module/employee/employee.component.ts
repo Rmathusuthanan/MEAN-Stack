@@ -9,7 +9,7 @@ import { Employee } from 'src/models/employee';
 })
 export class EmployeeComponent implements OnInit {
   employees: Employee[] = [];
-  departments: any[] = [];
+
   message = '';
   editMode = false;
   selectedEmployeeId = '';
@@ -35,7 +35,6 @@ export class EmployeeComponent implements OnInit {
   constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
-    this.loadDepartments();
     this.loadEmployees();
   }
 
@@ -43,17 +42,6 @@ export class EmployeeComponent implements OnInit {
     this.employeeService.getEmployees().subscribe({
       next: (res: Employee[]) => {
         this.employees = res;
-      },
-      error: (err) => {
-        console.error(err);
-      },
-    });
-  }
-
-  loadDepartments(): void {
-    this.employeeService.getDepartments().subscribe({
-      next: (res: any[]) => {
-        this.departments = res;
       },
       error: (err) => {
         console.error(err);
@@ -115,39 +103,6 @@ export class EmployeeComponent implements OnInit {
       next: () => {
         this.message = 'Employee deleted successfully.';
         this.loadEmployees();
-      },
-      error: (err) => {
-        console.error(err);
-      },
-    });
-  }
-
-  saveDepartment(): void {
-    if (!this.departmentForm.name) {
-      return;
-    }
-
-    this.employeeService.addDepartment(this.departmentForm).subscribe({
-      next: () => {
-        this.message = 'Department created successfully.';
-        this.departmentForm = { name: '', description: '' };
-        this.loadDepartments();
-      },
-      error: (err) => {
-        console.error(err);
-      },
-    });
-  }
-
-  deleteDepartment(id: string): void {
-    if (!confirm('Delete this department?')) {
-      return;
-    }
-
-    this.employeeService.deleteDepartment(id).subscribe({
-      next: () => {
-        this.message = 'Department deleted successfully.';
-        this.loadDepartments();
       },
       error: (err) => {
         console.error(err);

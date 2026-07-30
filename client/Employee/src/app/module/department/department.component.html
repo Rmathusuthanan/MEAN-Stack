@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>Employee Management</h2>
+    <a routerLink="/dashboard" class="btn btn-outline-secondary">
+        Back to Dashboard
+    </a>
+</div>
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Department</div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input class="form-control" [(ngModel)]="departmentForm.name" name="departmentName" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" rows="3" [(ngModel)]="departmentForm.description"
+                        name="departmentDescription"></textarea>
+                </div>
+                <button class="btn btn-primary" type="button" (click)="saveDepartment()">
+                    Add Department
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Departments</div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center"
+                        *ngFor="let department of departments">
+                        <span>{{ department.name }}</span>
+                        <button class="btn btn-sm btn-danger" type="button" (click)="deleteDepartment(department._id)">
+                            Delete
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

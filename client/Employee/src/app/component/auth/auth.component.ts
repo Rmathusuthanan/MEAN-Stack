@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./auth.component.css'],
 })
 export class AuthComponent {
-  activeTab: string = 'register';
+  activeTab: 'login' | 'register' | null = null;
 
-  switchTab(tab: string) {
+  switchTab(tab: 'login' | 'register') {
     this.activeTab = tab;
   }
 }

@@ -7,6 +7,7 @@ import { ForgetPasswordComponent } from './component/auth/forget-password/forget
 import { DashboardComponent } from './component/dashboard/dashboard/dashboard.component';
 import { EmployeeComponent } from './module/employee/employee.component';
 import { AuthGuard } from './component/auth/auth.guard';
+import { DepartmentComponent } from './module/department/department.component';
 
 const routes: Routes = [
   { path: 'auth', component: AuthComponent },
@@ -21,6 +22,11 @@ const routes: Routes = [
   {
     path: 'employee',
     component: EmployeeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'department',
+    component: DepartmentComponent,
     canActivate: [AuthGuard],
   },
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
