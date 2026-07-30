@@ -21,5 +21,14 @@ import { SuperAdminComponent } from '../component/auth/login/super-admin/super-a
     SuperAdminComponent,
   ],
   imports: [CommonModule, ReactiveFormsModule],
+  exports: [
+    AuthComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgetPasswordComponent,
+    AdminComponent,
+    UserComponent,
+    SuperAdminComponent,
+  ],
 })
 export class AuthModule {}

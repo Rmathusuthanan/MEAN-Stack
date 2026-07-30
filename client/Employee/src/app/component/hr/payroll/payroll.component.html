@@ -1,0 +1,32 @@
+<div class="container py-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h2 class="mb-1">Payroll</h2>
+            <p class="text-muted mb-0">Review monthly payroll details and net pay.</p>
+        </div>
+        <a routerLink="/dashboard" class="btn btn-outline-secondary">Back to Dashboard</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-striped mb-0">
+                <thead>
+                    <tr>
+                        <th>Employee</th>
+                        <th>Month</th>
+                        <th>Salary</th>
+                        <th>Net Pay</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of payrollEntries">
+                        <td>{{ item.employee }}</td>
+                        <td>{{ item.month }}</td>
+                        <td>{{ item.salary | currency:'USD' }}</td>
+                        <td>{{ item.netPay | currency:'USD' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

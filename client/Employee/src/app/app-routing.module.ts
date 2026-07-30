@@ -8,6 +8,11 @@ import { DashboardComponent } from './component/dashboard/dashboard/dashboard.co
 import { EmployeeComponent } from './module/employee/employee.component';
 import { AuthGuard } from './component/auth/auth.guard';
 import { DepartmentComponent } from './module/department/department.component';
+import { AdminComponent } from './component/auth/login/admin/admin.component';
+import { UserComponent } from './component/auth/login/user/user.component';
+import { SuperAdminComponent } from './component/auth/login/super-admin/super-admin.component';
+import { LeaveManagementComponent } from './component/hr/leave-management/leave-management.component';
+import { PayrollComponent } from './component/hr/payroll/payroll.component';
 
 const routes: Routes = [
   { path: 'auth', component: AuthComponent },
@@ -27,6 +32,31 @@ const routes: Routes = [
   {
     path: 'department',
     component: DepartmentComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'user',
+    component: UserComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'super-admin',
+    component: SuperAdminComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'leave',
+    component: LeaveManagementComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'payroll',
+    component: PayrollComponent,
     canActivate: [AuthGuard],
   },
   { path: '', redirectTo: '/auth', pathMatch: 'full' },
